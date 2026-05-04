@@ -30,6 +30,8 @@ jobs:
       - name: Install dependencies
         run: npm install --no-audit --no-fund
 
+      # Custom domain (e.g. deltastructures.ca) is served at URL root — base must be "/".
+      # A path base like "/repo/" breaks the site (white page) on apex domains.
       - name: Build
         run: npm run build
         env:
