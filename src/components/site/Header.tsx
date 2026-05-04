@@ -22,8 +22,8 @@ const Header = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const onProject = pathname.startsWith("/projects/");
-  const solid = scrolled || onProject;
+  const isHome = pathname === "/";
+  const solid = scrolled || !isHome;
 
   return (
     <header
