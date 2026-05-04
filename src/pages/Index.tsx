@@ -3,7 +3,6 @@ import Footer from "@/components/site/Footer";
 import Hero from "@/components/site/Hero";
 import Services from "@/components/site/Services";
 import ProjectsGrid from "@/components/site/ProjectsGrid";
-import About from "@/components/site/About";
 import Contact from "@/components/site/Contact";
 import { useEffect } from "react";
 
@@ -26,7 +25,6 @@ const Index = () => {
         <Hero />
         <Services />
         <ProjectsGrid />
-        <About />
         <Contact />
       </main>
       <Footer />

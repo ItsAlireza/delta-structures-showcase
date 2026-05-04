@@ -4,6 +4,7 @@ import tower from "@/assets/project-tower.jpg";
 import stadium from "@/assets/project-stadium.jpg";
 import refinery from "@/assets/project-refinery.jpg";
 import terminal from "@/assets/project-terminal.jpg";
+import hero from "@/assets/hero-steel.jpg";
 
 export type Project = {
   slug: string;
@@ -17,6 +18,7 @@ export type Project = {
   summary: string;
   description: string;
   image: string;
+  images: string[];
 };
 
 export const projects: Project[] = [
@@ -33,6 +35,7 @@ export const projects: Project[] = [
     description:
       "Delta Structures Group delivered the complete detailing scope for this 220,000 sq ft cross-dock distribution facility. Our team modeled the primary frames, secondary framing, bracing, crane runways, and miscellaneous metals in Tekla Structures, coordinating closely with the EOR and the steel fabricator to compress the detailing schedule by four weeks.",
     image: warehouse,
+    images: [warehouse, hero, refinery],
   },
   {
     slug: "riverside-pedestrian-bridge",
@@ -47,6 +50,7 @@ export const projects: Project[] = [
     description:
       "A 180-ft single-span weathering steel truss spanning eight lanes of interstate traffic. Detailing included full camber control, splice optimization, and lift-plan coordination for a 6-hour overnight road closure installation window.",
     image: bridge,
+    images: [bridge, hero, terminal],
   },
   {
     slug: "meridian-tower",
@@ -61,6 +65,7 @@ export const projects: Project[] = [
     description:
       "Detailed all 32 floors of structural steel including composite floor framing, perimeter moment frames, and an interior braced core. Our BIM coordination workflow resolved more than 1,200 clashes with MEP trades prior to fabrication release.",
     image: tower,
+    images: [tower, hero, stadium],
   },
   {
     slug: "horizon-stadium-roof",
@@ -75,11 +80,12 @@ export const projects: Project[] = [
     description:
       "A complex tubular steel truss roof with cantilevers up to 95 ft. Delta provided full long-span detailing, splice design coordination, and erection sequencing drawings that supported a phased install around an active venue schedule.",
     image: stadium,
+    images: [stadium, terminal, hero],
   },
   {
     slug: "gulfside-refinery-pipe-rack",
     title: "Gulfside Refinery Pipe Rack",
-    category: "Oil & Gas",
+    category: "Petrochemical",
     location: "Baton Rouge, LA",
     year: "2023",
     client: "Gulfside Energy Partners",
@@ -89,6 +95,7 @@ export const projects: Project[] = [
     description:
       "Modular pipe rack and equipment support steel for a brownfield refinery expansion. Detailing was sequenced to match the modular fabrication strategy, allowing rack sections to be skidded in during a 14-day turnaround.",
     image: refinery,
+    images: [refinery, hero, warehouse],
   },
   {
     slug: "skyport-terminal-expansion",
@@ -103,7 +110,10 @@ export const projects: Project[] = [
     description:
       "Detailing of curved tapered box girders and tubular trusses forming the signature roof of a new international concourse. Tight tolerances on the exposed AESS members required Category 4 finish coordination with the fabricator.",
     image: terminal,
+    images: [terminal, hero, stadium],
   },
 ];
 
 export const getProject = (slug: string) => projects.find((p) => p.slug === slug);
+
+export const categories = Array.from(new Set(projects.map((p) => p.category))).sort();

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, ArrowRight } from "lucide-react";
 import { projects } from "@/data/projects";
 
 const ProjectsGrid = () => (
@@ -14,6 +14,12 @@ const ProjectsGrid = () => (
             major sector of structural steel construction.
           </p>
         </div>
+        <Link
+          to="/projects"
+          className="inline-flex items-center gap-2 text-sm font-semibold text-accent hover:gap-3 transition-all whitespace-nowrap"
+        >
+          View all projects <ArrowRight className="h-4 w-4" />
+        </Link>
       </div>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
