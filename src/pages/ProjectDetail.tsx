@@ -54,7 +54,7 @@ const ProjectDetail = () => {
           />
           <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
           <div className="container-custom relative z-10 pb-16 text-primary-foreground">
-            <Link to="/#projects" className="inline-flex items-center gap-2 text-sm text-primary-foreground/70 hover:text-accent mb-6">
+            <Link to="/projects" className="inline-flex items-center gap-2 text-sm text-primary-foreground/70 hover:text-accent mb-6">
               <ArrowLeft className="h-4 w-4" /> All Projects
             </Link>
             <span className="inline-block bg-accent text-accent-foreground px-3 py-1 text-[11px] font-semibold uppercase tracking-widest mb-4">
@@ -91,6 +91,24 @@ const ProjectDetail = () => {
                 was published in incremental release packages to support a fast-track fabrication
                 schedule, with QA sign-off at every stage.
               </p>
+
+              {project.images && project.images.length > 0 && (
+                <>
+                  <h3 className="text-xl font-semibold mt-12 mb-6">Project gallery</h3>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    {project.images.map((src, i) => (
+                      <div key={i} className="aspect-[4/3] overflow-hidden bg-secondary">
+                        <img
+                          src={src}
+                          alt={`${project.title} — image ${i + 1}`}
+                          loading="lazy"
+                          className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </>
+              )}
             </div>
 
             <aside className="bg-secondary p-8">
