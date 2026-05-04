@@ -12,12 +12,16 @@ import ScrollToTop from "./components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
+/** Must match Vite `base` so routes work on GitHub project pages (`/repo/`). */
+const routerBasename =
+  import.meta.env.BASE_URL.replace(/\/$/, "") || undefined;
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename={routerBasename}>
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />

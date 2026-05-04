@@ -33,7 +33,8 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          VITE_BASE_URL: /${{ github.event.repository.name }}/
+          # User/org site repo is served at domain root; other repos use /repo-name/
+          VITE_BASE_URL: ${{ github.event.repository.name == format('{0}.github.io', github.repository_owner) && '/' || format('/{0}/', github.event.repository.name) }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
